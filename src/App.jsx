@@ -1,17 +1,17 @@
 import './App.css'
-import {Button} from 'react-bootstrap'
-import { ToastContainer, toast } from 'react-toastify';
-import { BsAirplaneFill } from "react-icons/bs";
+import { ToastContainer } from 'react-toastify';
+import AppRoutes from './routes/AppRoutes';
+
+
+
+
 
 function App() {
-toast.success('hello')
+
 
   return (
    <>
-   <h1>
-       hell0
-    </h1>
-    <Button> click me <BsAirplaneFill />  </Button>
+     <AppRoutes />
     <ToastContainer/>
     </>
   )
