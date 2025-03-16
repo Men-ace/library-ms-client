@@ -1,15 +1,20 @@
 
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-// import DashBoardPage from '../pages/dashboard/DashBoardPage';
-// import HomePage from '../pages/home/HomePage';
-import { HomePage, DashBoardPage } from '../pages'
+import { HomePage, DashBoardPage, SignUpPage, SignInPage, ForgetPassword, BooksLandingPage } from '../pages'
+import DefaultLayout from '../components/layouts/DefaultLayout';
+
 
 const AppRoutes = () => {
   return (
     <Routes>
       {/* public pages */}
-      <Route path='/' element={<HomePage/>} />
+        <Route path='/' element ={<DefaultLayout/>}>     
+             <Route index element={<HomePage />}/>
+             <Route path='/signup' element={<SignUpPage />}/>
+             <Route path='/login' element={<SignInPage/>}/>
+             <Route path='/forget-password' element={<ForgetPassword />}/>
+        </Route>
 
         {/* private pages */}
         <Route path='/user' element={<DashBoardPage/>} />
