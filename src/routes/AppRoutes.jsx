@@ -3,6 +3,8 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { HomePage, DashBoardPage, SignUpPage, SignInPage, ForgetPassword, BooksLandingPage } from '../pages'
 import DefaultLayout from '../components/layouts/DefaultLayout';
+import UserLayout from '../components/layouts/UserLayout';
+
 
 
 const AppRoutes = () => {
@@ -17,7 +19,11 @@ const AppRoutes = () => {
         </Route>
 
         {/* private pages */}
-        <Route path='/user' element={<DashBoardPage/>} />
+        <Route path='/user' element={<UserLayout/>}>
+        <Route index element={<DashBoardPage />}/>
+        
+        </Route>
+
    </Routes>
   )
 }
