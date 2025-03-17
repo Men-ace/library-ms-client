@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { HomePage, DashBoardPage, SignUpPage, SignInPage, ForgetPassword, BooksLandingPage } from '../pages'
 import DefaultLayout from '../components/layouts/DefaultLayout';
 import UserLayout from '../components/layouts/UserLayout';
+import Books from '../pages/books/Books';
 
 
 
@@ -20,10 +21,9 @@ const AppRoutes = () => {
 
         {/* private pages */}
         <Route path='/user' element={<UserLayout/>}>
-        <Route index element={<DashBoardPage />}/>
-        
+             <Route index element={<DashBoardPage />}/>
+             <Route path='books' element={<Books />}/>
         </Route>
-
    </Routes>
   )
 }
