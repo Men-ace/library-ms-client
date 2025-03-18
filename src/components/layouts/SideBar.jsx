@@ -17,11 +17,11 @@ import { Link } from 'react-router-dom';
         </div>
 
         <div className="p-2">
-            <Link className="nav-link"  to="/borrow" >Borrow</Link>
+            <Link className="nav-link"  to="/user/borrow-history" >Borrow-History</Link>
         </div>
 
         <div className="p-2">
-            <Link className="nav-link"  to="/profile" >profile</Link>
+            <Link className="nav-link"  to="/user/profile" >profile</Link>
         </div>
     </Stack>
   );
