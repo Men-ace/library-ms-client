@@ -3,18 +3,37 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { CustomInput } from '../../components/customInput/CustomInput';
 import { signUpInputs } from '../../assets/customInputs/userSignUp';
+import useForm from '../../hooks/useForm';
+import { singUpNewUserApi } from '../../services/authAPI';
 
 
+const initialState = {}
 const SignUpPage = () => {
+const { form, setForm, handleOnChange}  = useForm(initialState)
+
+const handleOnSubmit = async(e) =>{
+  e.preventDefault()
+
+  const result = await singUpNewUserApi(form)
+}
+
   return (
     <div className='d-flex justify-content-center'>
-     <Form style={{width:"450px"}} className="card p-3 shadow-lg mt-5 mb-5">
+     <Form 
+     onSubmit={handleOnSubmit}
+     style={{width:"450px"}}
+      className="card p-3 shadow-lg mt-5 mb-5">
+
       <h1>Join Our Library Community</h1>
       <hr />
-      {
-        signUpInputs.map((inputs)=> <CustomInput keys={inputs.name} {...inputs}/> 
 
-        )
+      {
+        signUpInputs.map((inputs)=>
+           (<CustomInput 
+            key={inputs.name} 
+            {...inputs} 
+            onChange={handleOnChange}/>)
+          )
       }
 
       <Button variant="primary" type="submit" className='mb-4'>
