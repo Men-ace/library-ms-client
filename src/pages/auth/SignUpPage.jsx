@@ -9,7 +9,7 @@ import { singUpNewUserApi } from '../../services/authAPI';
 
 const initialState = {}
 const SignUpPage = () => {
-const { form, setForm, handleOnChange}  = useForm(initialState)
+const { form, setForm, handleOnChange, passswordErrors}  = useForm(initialState)
 
 const handleOnSubmit = async(e) =>{
   e.preventDefault()
@@ -28,15 +28,25 @@ const handleOnSubmit = async(e) =>{
       <hr />
 
       {
-        signUpInputs.map((inputs)=>
+        signUpInputs.map((input)=>
            (<CustomInput 
-            key={inputs.name} 
-            {...inputs} 
+            key={input.name} 
+            {...input} 
             onChange={handleOnChange}/>)
           )
       }
 
-      <Button variant="primary" type="submit" className='mb-4'>
+        <div className="p-3">
+          <ul className='text-danger'>
+            {
+              passswordErrors?.length > 0 && 
+              passswordErrors.map((msg)=> <li key={msg}>{msg}</li> )
+            }
+          </ul>
+        </div>
+
+      <Button variant="primary" type="submit" className='mb-4'
+      disabled={passswordErrors?.length}>
         Submit
       </Button>
     </Form>

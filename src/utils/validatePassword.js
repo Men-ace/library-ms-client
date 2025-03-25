@@ -6,7 +6,7 @@
 // password must match 
 
 
-export const validator = (password, confirmPassword) =>{
+export const validator = (password="", confirmPassword="") =>{
     const error  = []
 
     password.length < 6 && error.push("At least 6 character required")

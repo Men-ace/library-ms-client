@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import { HomePage, DashBoardPage, SignUpPage, SignInPage, ForgetPassword, BooksLandingPage, Books, EditBookPage, NewBookPage, ReviewPage, UserPage, Profile, BorrowPage } from '../pages'
+import { HomePage, DashBoardPage, SignUpPage, SignInPage, ForgetPassword, BooksLandingPage, Books, EditBookPage, NewBookPage, ReviewPage, UserPage, Profile, BorrowPage, VerifyUser } from '../pages'
 import DefaultLayout from '../components/layouts/DefaultLayout';
 import UserLayout from '../components/layouts/UserLayout';
 
@@ -15,6 +15,7 @@ const AppRoutes = () => {
         <Route path='/' element ={<DefaultLayout/>}>     
              <Route index element={<HomePage />}/>
              <Route path='/signup' element={<SignUpPage />}/>
+             <Route path='/verify-user' element={<VerifyUser />}/>
              <Route path='/login' element={<SignInPage/>}/>
              <Route path='/forget-password' element={<ForgetPassword />}/>
         </Route>
