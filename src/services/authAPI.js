@@ -9,9 +9,19 @@ export const singUpNewUserApi = async(payload)=>{
         url: authApiEP + "/register",
         method: "post",
         payload,
+        showToast: true
     }
     const result = await apiProcessor(obj)
-    console.log(result)
+}
+
+export const activateNewUserApi = async(payload)=>{
+    const obj = {
+        url: authApiEP + "/activate-user",
+        method: "post",
+        payload,
+    }
+    return apiProcessor(obj)
+  
 }
 
 
